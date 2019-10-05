@@ -10,11 +10,25 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var phoneNumberTF: UITextField!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+       
+        
+        
     }
 
 
+    @IBAction func btn_call(_ sender: Any) {
+        
+        let phoneNumber = phoneNumberTF.text
+        
+        let url = URL(string: "telprompt://\(phoneNumber ?? "")")
+        
+        UIApplication.shared.open(url!, options: [:], completionHandler: nil)
+        
+    }
 }
 
